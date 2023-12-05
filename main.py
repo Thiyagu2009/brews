@@ -33,7 +33,7 @@ def render_input_page():
     col1, col2, col3, col4 = st.columns(4)
     while(True):
         construct_email_events_metrics(col1, col2, col3, col4)
-        time.sleep(600)
+        time.sleep(60)
 
 
 def construct_email_events_metrics(col1, col2, col3, col4):
