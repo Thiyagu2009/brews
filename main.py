@@ -29,14 +29,9 @@ def render_input_page():
     st.dataframe(construct_df())
 
     st.subheader("Email Stats last 90 days")
-
     col1, col2, col3, col4 = st.columns(4)
-    while(True):
-        construct_email_events_metrics(col1, col2, col3, col4)
-        time.sleep(60)
 
-
-def construct_email_events_metrics(col1, col2, col3, col4):
+    # Get stats from brevo
     email_events_response = email_events()
 
     col1.metric("Requested", email_events_response.requests)

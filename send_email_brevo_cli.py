@@ -1,6 +1,7 @@
 import requests
+import streamlit as st
 
-api_key = "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"
+api_key = st.secrets["brevo_api_key"]
 
 def send_transactional_email(sender_name, sender_email, recipient_name, recipient_email, subject, html_content):
     url = "https://api.brevo.com/v3/smtp/email"

@@ -1,10 +1,9 @@
 from supabase import create_client
 import pandas as pd
+import streamlit as st
 
 # Set your Supabase credentials
-supabase_url = "https://ppjbgzzpfcnjiowdxyld.supabase.co"
-supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBwamJnenpwZmNuamlvd2R4eWxkIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwMTc1NTM3MiwiZXhwIjoyMDE3MzMxMzcyfQ.wjAxhuO-8jC6AXDeOxjkP-FeeDUgzpfmrbum1M4Grio"
-supabase = create_client(supabase_url, supabase_key)
+supabase = create_client(st.secrets.database.supabase_url, st.secrets.database.supabase_key)
 
 
 def insert_user(email):
