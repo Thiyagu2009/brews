@@ -45,9 +45,11 @@ api_instance = sib_api_v3_sdk.TransactionalEmailsApi(sib_api_v3_sdk.ApiClient(co
 
 def email_events():
 
+
     try:
         api_response = api_instance.get_aggregated_smtp_report()#start_date=start_date, end_date=end_date, tag=tag)
         pprint(api_response)
+        return api_response
+
     except ApiException as e:
         print("Exception when calling SMTPApi->get_aggregated_smtp_report: %s\n" % e)
-    return api_response
