@@ -1,4 +1,4 @@
-import time
+import re
 
 import streamlit as st
 
@@ -21,9 +21,14 @@ def render_input_page():
     options = ["Podcast", "Wine"]
     interest = st.selectbox("Select your area of interest:", options)
     btn_result = st.button("Send Email")
+    email_regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+
     if btn_result:
-        insert_user(recepient_email)
-        send_brevo_email(recepient_email, interest, generate_blog(interest))
+        if (recepient_email == "") or (re.match(email_regex, recepient_email) is None):
+            st.warning('Enter a valid email', icon="⚠️")
+        else:
+            insert_user(recepient_email)
+            send_brevo_email(recepient_email, interest, generate_blog(interest))
 
     st.subheader("User & Stats")
     st.dataframe(construct_df())
