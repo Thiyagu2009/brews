@@ -36,6 +36,10 @@ def categorize_messages(messages):
             data['sentiment_score_group'].append(sentiment_group)
 
     df = pd.DataFrame(data)
+
+    # drop first row
+    df.iloc[1:, :]
+
     return df
 
 
