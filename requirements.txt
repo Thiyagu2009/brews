@@ -4,3 +4,5 @@ pandas~=2.1.3
 supabase~=2.2.0
 requests~=2.31.0
 sib_api_v3_sdk
+nltk
+plotly
