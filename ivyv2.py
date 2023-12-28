@@ -38,7 +38,7 @@ def categorize_messages(messages):
     df = pd.DataFrame(data)
 
     # drop first row
-    df.iloc[1:, :]
+    df = df.iloc[1:, :].reset_index(drop=True)
 
     return df
 
